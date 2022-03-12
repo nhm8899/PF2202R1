@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form đăng ký</title>
+    <style>
+        .heading {
+            color: #1c4bf8;
+            background-color: #d5fcd7;
+        }
+        .form1 {
+            background-color: #fffcad;
+            width: 30%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .left-col {
+            text-align: left;
+            color: #5266a8;
+            width: 40%;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form class="form1" method="get" action="signup.html">
+        <h2 class="heading">ĐĂNG KÝ HỌC VIÊN</h2>
+        <table cellspacing="0" cellpadding="0">
+            <tr>
+                <td class="left-col">Họ và tên</td>
+                <td class="right-col">
+                    <input type="text" name="Fullname">
+                </td>
+            </tr>
+            <tr>
+                <td class="left-col">Ngày sinh</td>
+                <td class="right-col">
+                    <input type="text" name="DoB">
+                </td>
+            </tr>
+            <tr>
+                <td class="left-col">Giới tính</td>
+                <td class="right-col">
+                    <input type="radio" name="Gender">Nam
+                    <input type="radio" name="Gender">Nữ
+                </td>
+            </tr>
+            <tr>
+                <td class="left-col">Địa chỉ</td>
+                <td class="right-col">
+                    <input type="text" name="Add">
+                </td>
+            </tr>
+            <tr>
+                <td class="left-col">Lớp</td>
+                <td class="right-col">
+                    <select>
+                        <option placeholder="--Chọn lớp--" value="A">A</option>
+                        <option placeholder="--Chọn lớp--" value="B">B</option>
+                        <option placeholder="--Chọn lớp--" value="C">C</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="left-col">Email</td>
+                <td class="right-col">
+                    <input type="email" name="Email">
+                </td>
+            </tr>
+            <tr>
+                <td class="left-col">Điện thoại</td>
+                <td class="right-col">
+                    <input type="text" name="Phone">
+                </td>
+            </tr>
+            <tr>
+                <td class="left-col"></td>
+                <td class="right-col">
+                    <input type="submit" value="Đăng ký">
+                    <input type="reset" value="Nhập lại">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
