@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add or delete an element</title>
+</head>
+<body>
+    <div class="container" id="index-content"> 
+        <h1>Hello</h1>
+        <h3 id="h3">H3 tag</h3>
+    </div>
+    <script>
+        // Tìm phần tử cần thay đổi
+        let indexContent = document.getElementById("index-content");
+        // Tạo ra 1 phần tử mới với create
+        let p = document.createElement('p'); // <p></p>
+        // Thêm nội dung cho thẻ mới Tạo
+        p.innerText = "This is an added p tag"; // <p> This is an added p tag </p>
+        // Thêm phần tử vào DOM
+        indexContent.appendChild(p);
+        let h3 = document.createElement('h3'); // Tạo ra node
+        h3.innerText = 'abc'; // Thay đổi nội dung node
+        indexContent.appendChild(h3); // Thêm node
+        // Demo remove
+        let h3 = document.getElementById('h3');
+        h3.remove(); // Cách 1
+        indexContent.removeChild(h3); // Cách 2
+    </script>
+</body>
+</html>

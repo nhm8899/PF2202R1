@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Intro</title>
+</head>
+<body>
+    <div id="index-content" class="container">
+        <h1>Hello</h1>
+    </div>
+    <script>
+        let indexContent =document.getElementById("index-content");
+        console.log(indexContent.innerHTML); // Lấy ra HTML của phần tử
+        indexContent.innerHTML = "<p> Hello </p>";
+        indexContent.innerText = "<p> Hi </p>";
+    </script>
+</body>
+</html>
