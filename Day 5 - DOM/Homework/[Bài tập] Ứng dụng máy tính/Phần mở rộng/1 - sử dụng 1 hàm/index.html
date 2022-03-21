@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extend 1</title>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <form method="get" action="calc.html">
+        <input type="number" onchange="modifyInput('n1', this)">
+        <input type="number" onchange="modifyInput('n2', this)">
+        <br/><br/>
+        <button onclick="calculate('add')">Addition(+)</button>
+        <button onclick="calculate('sub')">Subtraction(-)</button>
+        <button onclick="calculate('mul')">Multiplication(X)</button>
+        <button onclick="calculate('div')">Division(/)</button>
+        <br/><br/>
+        <div id="result"></div>
+    </form>
+    <script>
+        let n1, n2;
+        let result = document.getElementById("result");
+        function modifyInput(name, obj) {
+            switch (name) {
+                case 'n1' :
+                    n1 = parseFloat(obj.value);
+                    break;
+                case 'n2' :
+                    n2 = parseFloat(obj.value);
+                    break;
+                default :
+                    break;
+            }
+        }
+        function calculate(method) {
+            switch (method) {
+                case 'add' :
+                    result.innerText = "Tổng = " + (n1 + n2);
+                    break;
+                case 'sub' :
+                    result.innerText = "Hiệu = " + (n1 - n2);
+                    break;
+                case 'mul' :
+                    result.innerText = "Tổng = " + (n1 * n2);
+                    break;
+                case 'div' :
+                    result.innerText = "Tổng = " + (n1 / n2);
+                    break;
+                default :
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

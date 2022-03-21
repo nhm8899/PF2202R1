@@ -8,19 +8,42 @@
 </head>
 <body>
     <h1>Calculator</h1><br/>
-    <input type="text" id="n1">
-    <input type="text" id="n2"><br/><br/>
-    <button type="button" onclick="cong()">Addition(+)</button>
-    <button type="button" onclick="tru()">Subtraction(-)</button>
-    <button type="button" onclick="nhan()">Multiplication(X)</button>
-    <button type="button" onclick="chia()">Division(/)</button><br/>
+    <form action="calc.html" method="get">
+        <input type="number" id="n1">
+        <input type="number" id="n2"><br/><br/>
+        <button type="button" id="addi">Addition(+)</button>
+        <button type="button" id="sub">Subtraction(-)</button>
+        <button type="button" id="mul">Multiplication(X)</button>
+        <button type="button" id="div">Division(/)</button><br/><br/>
+        <div id="result"></div>
+    </form>
     <script>
-        let n1 = document.getElementById("n1").value;
-        let n2 = document.getElementById("n2").value;
-        function cong() {
-            let tong = parseInt(n1) + parseInt(n2);
-            document.write("Tổng = " + tong);
-        }
+        let n1 = document.getElementById("n1");
+        let n2 = document.getElementById("n2");
+        let addi = document.getElementById("addi");
+        let sub = document.getElementById("sub");
+        let mul = document.getElementById("mul");
+        let div = document.getElementById("div");
+        let result = document.getElementById("result");
+        let firstNum, secondNum;
+        n1.addEventListener('change', function () {
+            firstNum = parseFloat(n1.value);
+        });
+        n2.addEventListener('change', function () {
+            secondNum = parseFloat(n2.value);
+        });
+        addi.addEventListener('click', function () {
+            result.innerText = "Tổng = " + (firstNum + secondNum);
+        });
+        sub.addEventListener('click', function () {
+            result.innerText = "Hiệu = " + (firstNum - secondNum);
+        });
+        mul.addEventListener('click', function () {
+            result.innerText = "Tích = " + (firstNum * secondNum);
+        });
+        div.addEventListener('click', function () {
+            result.innerText = "Thương = " + (firstNum / secondNum);
+        });
     </script> 
 </body>
 </html>
