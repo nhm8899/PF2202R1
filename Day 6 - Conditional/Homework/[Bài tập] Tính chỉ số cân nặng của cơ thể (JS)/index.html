@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính chỉ số BMI</title>
+</head>
+
+<body>
+    <script>
+        let weight = parseFloat(prompt("Input your weight: "));
+        let height = parseFloat(prompt("Input your height: "));
+        let bmi = weight / (height * height);
+        if (bmi < 16) {
+            alert("Gầy độ III");
+        } else if (bmi >= 16 && bmi < 17) {
+            alert("Gầy độ II");
+        } else if (bmi >= 17 && bmi < 18.5) {
+            alert("Gầy độ I");
+        } else if (bmi >=18.5 && bmi < 25) {
+            alert("Bình thường");
+        } else if (bmi >= 25 && bmi <30) {
+            alert("Thừa cân");
+        } else if (bmi >= 30 && bmi <35) {
+            alert("Béo phì độ I");
+        } else if (bmi >= 35 && bmi <40) {
+            alert("Béo phì độ II");
+        } else if (bmi > 40) {
+            alert("Béo phì độ III");
+        }
+    </script>
+</body>
+
+</html>

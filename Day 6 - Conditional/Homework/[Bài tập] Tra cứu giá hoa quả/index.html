@@ -10,39 +10,33 @@
 
 <body>
     <h2>Giá hoa quả</h2>
-    <div>
-        <input type="text" id="fruit">
-        <button type="button" id="check">Xem giá</button>
-    </div>
-    </br />
+    <input type="text" id="fruit">
+    <input type="button" id="check" value="Xem giá" onclick="check()">
+    </br>
     </br>
     <div id="result"></div>
     <script>
         let fruit = document.getElementById("fruit");
         let result = document.getElementById("result");
-        let button = document.getElementById("check");
-        let output;
-        button.addEventListener("click", function () {
-            let input = fruit.value.toLowerCase();
-            switch (input) {
-                case (input == "oi" || input == "ổi"):
-                case (input == "dua hau" || input == "Dưa Hấu"):
-                    output = "20000 VNĐ/kg";
+        function check() {
+            switch (fruit.value) {
+                case "oi":
+                case "dua hau":
+                    result.innerText = "20000 VNĐ/kg";
                     break;
-                case (input == "tao" || input == "táo"):
-                case (input == "xoai" || input == "xoài"):
-                    output = "30000 VNĐ/kg";
+                case "tao":
+                case "xoai":
+                    result.innerText = "30000 VNĐ/kg";
                     break;
-                case (input == "cam"):
-                case (input == "chom chom" || input == "chôm chôm"):
-                    output = "40000 VNĐ/kg";
+                case "cam":
+                case "chom chom":
+                    result.innerText = "40000 VNĐ/kg";
                     break;
-                case (input == "mang cut" || input == "măng cụt"):
-                    output = "50000 VNĐ/kg";
+                case "mang cut":
+                    result.innerText = "50000 VNĐ/kg";
                     break;
             }
-            result.innerText = output;
-        })
+        }
     </script>
 </body>
 
