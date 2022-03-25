@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính điểm khối D</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h2>Tính điểm ĐH khối D</h2>
+    <form action="point.html">
+        <table cellspacing="0" cellpadding="0">
+            <tr>
+                <td>Môn Toán</td>
+                <td>
+                    <input type="number" onchange="modifyInput('math', this)">
+                </td>
+            </tr>
+            <tr>
+                <td>Môn Văn</td>
+                <td>
+                    <input type="number" onchange="modifyInput('lit', this)">
+                </td>
+            </tr>
+            <tr>
+                <td>Môn Anh</td>
+                <td>
+                    <input type="number" onchange="modifyInput('eng', this)">
+                </td>
+            </tr>
+            <tr>
+                <td>Khu vực</td>
+                <td>
+                    <select id="select">
+                        <option value='0.75'>KV1</option>
+                        <option value='0.5'>KV2</option>
+                        <option value='0.25'>KV2-NT</option>
+                        <option value='0'>KV3</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" onclick="showMessage()">Tính điểm</button>
+                </td>
+            </tr>
+        </table>
+        </br>
+        <div id="result"></div>
+    </form>
+    <script>
+        let math, lit, eng;
+        let select = document.getElementById("select");
+        let result = document.getElementById("result");
+        function modifyInput(name, obj) {
+            switch (name) {
+                case 'math':
+                    math = parseFloat(obj.value);
+                    break;
+                case 'lit':
+                    lit = parseFloat(obj.value);
+                    break;
+                case 'eng':
+                    eng = parseFloat(obj.value);
+                    break;
+            }
+        }
+        function showMessage() {
+            result.innerText = (math + lit + eng) + parseFloat(select.value);
+        }
+    </script>
+</body>
+</html>
