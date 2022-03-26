@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính năm âm lịch</title>
+</head>
+
+<body>
+    <h1>Tính năm âm lịch</h1>
+    <input type="number" id = "nam_duong_lich"></br></br>
+    <input type="button" id = "check" value="Check Year"></br></br>
+    <div id="show"></div>
+
+    <script>
+        let year = document.getElementById("nam_duong_lich");
+        let check = document.getElementById("check");
+        check.addEventListener('click', function(){
+            if (year.value != '') {
+            let can = year.value % 10;
+            let chi = year.value % 12;
+            let show = document.getElementById("show");
+            let n1 = '', n2 = '';
+            switch (can) {
+                case 0:
+                    n1 = "Canh";
+                    break;
+                case 1:
+                    n1 = "Tân";
+                    break;
+                case 2:
+                    n1 = "Nhâm";
+                    break;
+                case 3:
+                    n1 = "Quý";
+                    break;
+                case 4:
+                    n1 = "Giáp";
+                    break;
+                case 5:
+                    n1 = "Ất";
+                    break;
+                case 6:
+                    n1 = "Bính";
+                    break;
+                case 7:
+                    n1 = "Đinh";
+                    break;
+                case 8:
+                    n1 = "Mậu";
+                    break;
+                case 9:
+                    n1 = "Kỷ";
+                    break;
+            }
+            switch (chi) {
+                case 0:
+                    n2 = "Thân";
+                    break;
+                case 1:
+                    n2 = "Dậu";
+                    break;
+                case 2:
+                    n2 = "Tuất";
+                    break;
+                case 3:
+                    n2 = "Hợi";
+                    break;
+                case 4:
+                    n2 = "Tý";
+                    break;
+                case 5:
+                    n2 = "Sửu";
+                    break;
+                case 6:
+                    n2 = "Dần";
+                    break;
+                case 7:
+                    n2 = "Mão";
+                    break;
+                case 8:
+                    n2 = "Thìn";
+                    break;
+                case 9:
+                    n2 = "Tỵ";
+                    break;
+                case 10:
+                    n2 = "Ngọ";
+                    break;
+                case 11:
+                    n2 = "Mùi";
+                    break;
+            }
+            show.innerHTML = (" Năm " + year.value + " là năm " + n1 + ' ' + n2);
+        } else {
+            show.innerHTML = ("Mời bạn nhập năm!");
+        }
+        })
+        
+    </script>
+</body>
+
+</html>
