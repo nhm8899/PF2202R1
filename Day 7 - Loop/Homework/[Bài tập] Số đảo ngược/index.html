@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đảo ngược số</title>
+</head>
+<body>
+    <div id="result"></div>
+    <script>
+        let input = prompt("Nhập 1 số nguyên dương: ");
+        let n = '';
+        let i = input.length - 1;
+        while (i >= 0) {
+            n += input[i];
+            i--;
+        }
+        result.innerHTML = n;
+    </script>
+</body>
+</html>
