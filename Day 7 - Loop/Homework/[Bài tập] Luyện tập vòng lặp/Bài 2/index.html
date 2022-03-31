@@ -8,13 +8,17 @@
 </head>
 <body>
     <script>
+       do {
         let input = parseFloat(prompt("Input temperature?"));
-        while (input < 20) {
+        if (input < 20) {
             alert('Heat up!');
-        }
-        while (input > 100) {
+        } else if (input >= 100) {
             alert('Cool down!');
+        } else {
+            alert('Normal');
         }
+       } while (input > 20 || input < 100);
+       
     </script>
 </body>
 </html>
