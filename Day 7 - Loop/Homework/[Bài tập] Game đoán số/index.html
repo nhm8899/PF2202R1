@@ -12,18 +12,27 @@
     <input type="button" id="count" onclick="play()" value="Chơi">
     <script>
         function play() {
-            for (i = 0; i < 3; i++) {
-                let maxNum = parseInt(prompt("Input a maximum number: "));
-                let random = Math.floor(Math.random() * maxNum);
-                let guess = parseInt(prompt("Guess the number?"));
-                if (guess != random) {
-                    do {
-                        let again = parseInt(prompt("Guess again?"));
-                    } while (again <  || again > maxNum || again == "" || again != random);
-                    alert("Congratulation!");
+            let max = parseInt(prompt("Input a maximum number: "));
+            let min = 1;
+            let rand = Math.round(Math.random() * max);
+            console.log(rand);
+            for (i = 3; i >= 1; i--) {
+                let guess = parseInt(prompt("Your guess: [" + min + " - " + max + "] " + i + " turn left!"));
+                if (guess == rand) {
+                    alert('Congratulation! The number is: ' + rand);
+                    break;
+                } else if (guess < rand) {
+                    if (min < guess) {
+                        min = guess;
+                    }
                 } else {
-                    alert("Congratulation!");
+                    if (max > guess) {
+                        max = guess;
+                    }
                 }
+            }
+            if (i < 1) {
+                alert('Out of chances!');
             }
         }
     </script>
