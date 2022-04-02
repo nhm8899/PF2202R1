@@ -11,18 +11,21 @@
 <body>
     <script>
         for (i = 1; i <= 100; i++) {
-            console.log(i);
-            do {
-                i = "Fizz";
-            } while (i % 3 == 0);
-            do {
-                i = "Buzz";
-            } while (i % 5 == 0);
-            do {
-                i = "FizzBuzz";
-            } while (i % 3 == 0 && i % 5 == 0);
+            switch (true) {
+                case i % 3 == 0 && i % 5 == 0:
+                    console.log('FizzBuzz');
+                    break;
+                case i % 3 == 0:
+                    console.log('Fizz');
+                    break;
+                case i % 5 == 0:
+                    console.log('Buzz');
+                    break;
+                default:
+                    console.log(i);
+                    break;
+            }
         }
-        
     </script>
 </body>
 

@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hiển thị các số nguyên tố đầu tiên</title>
 </head>
+
 <body>
     <script>
         let number = parseInt(prompt("How many prime numbers you want to check?"));
-        for (count = 0; count < number; count++) {
-            for (n = 2; n < 100; n++) {
-                if (n % 2 == 0) {
-                    break;
+        for (i = 1, count = 1; count <= number; i++) {
+            let n = 0;
+            for (j = 1; j <= i; j++) {
+                if (i % j == 0) {
+                    n += 1;
+                    continue;
                 }
             }
-            count += n;
-            console.log(count);
+            if (n == 2) {
+                console.log(i);
+                count++;
+            }
         }
-        
     </script>
 </body>
+
 </html>

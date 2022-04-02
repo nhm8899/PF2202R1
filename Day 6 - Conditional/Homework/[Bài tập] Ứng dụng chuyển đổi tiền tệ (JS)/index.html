@@ -22,20 +22,31 @@
                     <input type="number" id="amount">
                 </td>
                 <td>
-                    <select>
-                        <option value="">VNĐ</option>
-                        <option value="">USD</option>
+                    <select id="select1">
+                        <option value="VNĐ">VNĐ</option>
+                        <option value="USD">USD</option>
                     </select>
                 </td>
                 <td>
-                    <select>
-                        <option value="">VNĐ</option>
-                        <option value="">USD</option>
+                    <select id="select2">
+                        <option value="VNĐ">VNĐ</option>
+                        <option value="USD">USD</option>
                     </select>
+                </td>
+                <td>
+                    <input type="button" onclick="check()" value="Convert">
                 </td>
             </tr>
         </table>
     </form>
+    <script>
+        function check() {
+            let amount = document.getElementById("amount").value;
+            let select1 = document.getElementById("select1").value;
+            let select2 = document.getElementById("select2").value;
+            if ()
+        }
+    </script>
 </body>
 
 </html>

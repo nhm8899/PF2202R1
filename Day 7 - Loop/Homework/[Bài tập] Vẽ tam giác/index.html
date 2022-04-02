@@ -10,24 +10,42 @@
 
 <body>
     <script>
-        for (i = 0; i < 5; i++) {
-            for (j = 0; j <= i; j++) {
+        let num = parseInt(prompt("Enter a number: "))
+        for (i = 1; i <= num; i++) {
+            for (j = 1; j <= i; j++) {
                 document.write("*");
             }
             document.write("<br/>");
         }
-    </script>
-    <br /><br />
-    <script>
-        for (i = 0; i < 5; i++) {
-            for (j = 5; j > i; j--) {
+        document.write("<br/>");
+        for (i = 1; i <= num; i++) {
+            for (j = num; j >= i; j--) {
                 document.write("*");
             }
             document.write("<br/>");
         }
-    </script>
-    <br /><br />
-    <script>
+        document.write("<br/>");
+        for (i = 1; i <= num; i++) {
+            for (j = 1; j <= num; j++) {
+                if (i + j > num) {
+                    document.write("*");
+                } else {
+                    document.write("&nbsp;&nbsp;");
+                }
+            }
+            document.write("<br/>");
+        }
+        document.write("<br/>");
+        for (i = 1; i <= num; i++) {
+            for (j = 1; j <= num; j++) {
+                if (j >= i) {
+                    document.write("*");
+                } else {
+                    document.write("&nbsp;&nbsp;");
+                }
+            }
+            document.write("<br/>");
+        }
     </script>
 </body>
 
