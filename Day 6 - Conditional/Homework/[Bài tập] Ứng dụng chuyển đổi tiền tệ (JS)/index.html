@@ -11,7 +11,7 @@
 <body>
     <form action="currency.html">
         <h2>Change currency</h2>
-        <table cellspacing="0" cellpadding="0">
+        <table cellspacing="0" cellpadding="30%">
             <tr>
                 <th>Amount</th>
                 <th>From Currency</th>
@@ -21,13 +21,13 @@
                 <td>
                     <input type="number" id="amount">
                 </td>
-                <td>
+                <td style = "text-align:center">
                     <select id="select1">
                         <option value="VNĐ">VNĐ</option>
                         <option value="USD">USD</option>
                     </select>
                 </td>
-                <td>
+                <td style = "text-align:center">
                     <select id="select2">
                         <option value="VNĐ">VNĐ</option>
                         <option value="USD">USD</option>
@@ -38,13 +38,23 @@
                 </td>
             </tr>
         </table>
-    </form>
+    </form><br />
+    <div id="result"></div>
     <script>
         function check() {
             let amount = document.getElementById("amount").value;
             let select1 = document.getElementById("select1").value;
             let select2 = document.getElementById("select2").value;
-            if ()
+            let result = document.getElementById("result");
+            if (select1 == select2) {
+                result.innerText = amount;
+            }
+            if (select1 == "VNĐ" && select2 == "USD") {
+                result.innerText = (amount / 23000) + " USD ";
+            }
+            if (select1 == "USD" && select2 == "VNĐ") {
+                result.innerText = (amount * 23000) + " VNĐ ";
+            }
         }
     </script>
 </body>
