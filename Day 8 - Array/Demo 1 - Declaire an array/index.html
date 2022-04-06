@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Declaire an array</title>
+</head>
+
+<body>
+    <script>
+        // Cách 1:
+        let integerArray = [4, 2, 6, 1]; // index = 0, 1, 2, 3 || length = 4
+        console.log(integerArray[0]); // 4
+        console.log(integerArray[4]); // undefined
+
+        // Cách 2:
+        let nameArr = new Array("Quan", "Huy", "Nam"); // length = 3 || index = 0-2
+        console.log(nameArr[0]); //Quan
+        console.log(nameArr[2]); // Nam
+        console.log(nameArr[3]); // undefined
+        
+        // Get length:
+        console.log(nameArr.length); // 3
+
+        // Assign value:
+        nameArr[3] = "Trung";
+        console.log(nameArr);
+
+        // for in
+        for (const index in nameArr) { //index - item || key - value
+            console.log(index + ". Hello " + nameArr[index]);
+        }
+        
+    </script>
+</body>
+
+</html>

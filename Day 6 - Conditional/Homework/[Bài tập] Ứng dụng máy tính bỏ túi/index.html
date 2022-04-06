@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máy tính bỏ túi</title>
+</head>
+
+<body>
+    <table id="table">
+        <tr>
+            <td colspan="4">
+                <div id="display">0</div>
+            </td>
+        </tr>
+        <tr>
+            <td><button type="button" class="btn" onclick="pressButton('1');">1</button></td>
+            <td><button type="button" class="btn" onclick="pressButton('2');">2</button></td>
+            <td><button type="button" class="btn" onclick="pressButton('3');">3</button></td>
+            <td><button type="button" class="btn" onclick="pressButton('+');">+</button></td>
+        </tr>
+        <tr>
+            <td><button type="button" class="btn" onclick="pressButton('4');">4</button></td>
+            <td><button type="button" class="btn" onclick="pressButton('5');">5</button></td>
+            <td><button type="button" class="btn" onclick="pressButton('6');">6</button></td>
+            <td><button type="button" class="btn" onclick="pressButton('-');">-</button></td>
+        </tr>
+        <tr>
+            <td><button type="button" class="btn" onclick="pressButton('7');">7</button></td>
+            <td><button type="button" class="btn" onclick="pressButton('8');">8</button></td>
+            <td><button type="button" class="btn" onclick="pressButton('9');">9</button></td>
+            <td><button type="button" class="btn" onclick="pressButton('x');">x</button></td>
+        </tr>
+        <tr>
+            <td><button type="button" class="btn" onclick="pressButton('c');">C</button></td>
+            <td><button type="button" class="btn" onclick="pressButton('0');">0</button></td>
+            <td><button type="button" class="btn" onclick="pressButton('=');">=</button></td>
+            <td><button type="button" class="btn" onclick="pressButton('/');">/</button></td>
+        </tr>
+    </table>
+    <script>
+        let display = document.getElementById("display");
+        display = display.value;
+        let ope = "";
+        function pressButton(buttonName) {
+            switch (buttonName) {
+                case '1' :
+
+            }
+        }
+    </script>
+</body>
+
+</html>

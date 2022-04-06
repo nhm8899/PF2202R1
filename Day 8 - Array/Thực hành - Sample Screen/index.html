@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Screen</title>
+</head>
+
+<body>
+    <h1>Sample Screen</h1>
+    <input type="text" id="box">
+    <button type="button" onclick="add()">Add</button>
+    <button type="button" onclick="display()">Display</button>
+    <div id="result"></div>
+    <script>
+        var inputArr = [];
+
+        function add() {
+            var num = document.getElementById("box").value;
+            inputArr.push(num);
+        }
+
+        function display() {
+            var result = document.getElementById("result");
+            var str = '';
+            for (i = 0; i < inputArr.length; i++) {
+                str += '<p>Element ' + i + ' = ' + inputArr[i] + '</p>'; // inputArr tại i
+            }
+            result.innerHTML = str;
+        }
+    </script>
+</body>
+
+</html>
