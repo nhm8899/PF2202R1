@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        /*-----------------------------------------
+        Phần bài tập này mình chia các nút bấm thành 5 phần tương ứng với 5 hàm
+         - Nút số từ 0-9 mình dùng hàm addInput để xử lý và thêm giá trị lên khung hiển thị
+         - Nút phép tính có 2 đối số (các nút + - x : và x^y)
+         - Nút phép tính có 1 đối số, click vào phép tính thì nó tính luôn chứ không đợi đối số thứ 2 (các nút giai thừa, khai căn, bình phương, lập phương và phần trăm)
+         - Nút clear để xóa giá trị đã nhập hoặc xóa biểu thức (nếu click 2 lần)
+         - Nút số Pi để nhập số Pi lên khung hiển thị
+         - Và hàm lẻ factorial để tính giai thừa
+        -----------------------------------------*/
+
+        function clearOutput() { //Click 1 lần xoá đối số hiện tại, click lần nữa xoá biểu thức đang tính
+            let output  = document.getElementById('output');
+            let temp    = document.getElementById('temp');
+            let calc    = document.getElementById('calc');
+            if (output.innerText != '') {
+                output.innerText = '';
+            } else {
+                temp.innerHTML = '';
+                calc.innerHTML = '';
+            }
+        }
+        function addInput(obj) { //Hàm nhập dữ liệu lên input cho các phím số từ 0-9 và dấu chấm.
+            let calc    = document.getElementById('calc');
+            let temp    = document.getElementById('temp');
+            let output  = document.getElementById('output');
+            if (output.innerText != Math.PI) { //Nếu trong output mà đã sẵn giá trị pi rồi thì khỏi nhập thêm gì hết
+                if (calc.innerHTML == '=') { 
+                    output.innerHTML    = '';
+                    temp.innerHTML      = '';
+                    calc.innerHTML      = '';
+                }
+                let val     = obj.innerText;
+                let str     = document.getElementById('output');
+                number      = str.innerText;
+                number += val;
+                str.innerText = number;
+            }
+        }
+        function factorial(n) { //Khai báo hàm tính giai thừa
+            if (n > 1) {
+                n *= factorial(n-1); //Đệ quy hàm tính giai thừa
+            } else {
+                n = 1;
+            }
+            return n;
+        }
+        function pi() {
+            let output  = document.getElementById('output');
+            output.innerHTML = Math.PI;
+        }
+        function calcOneArgument(obj) { //Hàm tính toán dành cho các phép tính có 1 đối số
+            /*-----------------------------------------
+            Gán giá trị hiển thị trong div output cho biến output
+            Kiểm tra nút người dùng vừa bấm là gì bằng cách get id của nút bấm
+            ép kiểu Float cho biến output và gán cho biến value để đảm bảo phép tính hoạt động đúng
+            switch-case dựa theo giá trị nút người dùng đã bấm để thực hiện phép tính
+            -----------------------------------------*/
+            let output  = document.getElementById('output');
+            let calcSign= obj.id;
+            value = parseFloat(output.innerHTML);
+            switch (calcSign) {
+                case '!':
+                    output.innerHTML = factorial(value);
+                    break;
+                case 'pow2':
+                    value = Math.pow(value, 2);
+                    output.innerHTML = value;
+                    break;
+                case 'pow3':
+                    value = Math.pow(value, 3);
+                    output.innerHTML = value;
+                    break;
+                case 'sqrt':
+                    output.innerHTML = Math.sqrt(value);
+                    break;     
+                case 'percnt':
+                    output.innerHTML = (value/100);
+                    break;            
+                default:
+                    break;
+            }
+        }
+        function calcTwoArgument(obj) { //Hàm tính toán dành cho các phép tính có 2 đối số
+            let x = parseFloat(document.getElementById('temp').innerHTML);
+            let output      = document.getElementById('output');
+            let temp        = document.getElementById('temp');
+            let calc        = document.getElementById('calc');
+            let clickSign    = obj.id;
+            if ( isNaN(x) ) {
+                /*---------------------------------
+                Kiểm tra xem đã tồn tại giá trị x chưa,
+                chưa thì gán giá trị của x cho div có tên là temp ẩn trong body,
+                gán giá trị nút người dùng bấm cho div calc ẩn trong body và trả ô nhập số về ô trống
+                ---------------------------------*/
+                let x = parseFloat(output.innerHTML);
+                temp.innerHTML=x;
+                calc.innerHTML=clickSign;
+                output.innerHTML='';
+            } else {
+                /*--------------------------------
+                Có giá trị của x rồi thì lấy tiếp giá trị của y,
+                Lấy thêm giá trị phép tính đã gán vào div calc hồi nãy
+                Kiểm tra giá trị phép tính là gì, nếu là powy thì phải tính riêng
+                Còn không phải powy thì dùng hàm eval cộng chuỗi (khỏi mất công switch-case dài dòng)
+                --------------------------------*/
+                let y               = parseFloat(output.innerHTML);
+                calcSign            = calc.innerHTML;
+                let tinh            = x + calcSign + y; // nối chuỗi
+                switch (calcSign) {
+                    case 'powy':
+                        output.innerHTML= Math.pow(x, y);
+                        break;
+                    case '+':
+                        output.innerHTML= (x+y);
+                        break;
+                    case '-':
+                        output.innerHTML= (x-y);
+                        break;
+                    case '*':
+                        output.innerHTML= (x*y);
+                        break;
+                    case '/':
+                        output.innerHTML= (x/y);
+                        break;
+                
+                    default:
+                        break;
+                }
+                // if (calcSign == 'powy') {
+                    
+                // } else {
+                //     output.innerHTML= eval(tinh);
+                // }
+
+                if (clickSign == '=') { //kiểm tra dấu vừa bấm có phải dấu = không
+                    temp.innerHTML      = '';
+                    calc.innerHTML      = '=';
+                } else {
+                    temp.innerHTML      = output.innerHTML;
+                    calc.innerHTML      = obj.id;
+                    output.innerHTML    = '';
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="card my-3 mx-auto" style="width: 30rem">
+        <div class="card-header text-center">
+            <h3>MÁY TÍNH BỎ TÚI</h3>
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <div id="output" class="form-control border-1" style="text-align: right; height: 45px;"></div>
+            </div>
+            <div class="row mb-2">
+                <div class="col">
+                    <div class="d-grid"><button class="btn btn-outline-secondary btn-lg btn-block" id="!" onclick="calcOneArgument(this)">x!</button></div>
+                </div>
+                <div class="col">
+                    <div class="d-grid"><button class="btn btn-outline-secondary btn-lg btn-block" id="pow2" onclick="calcOneArgument(this)">x<sup>2</sup></button></div>
+                </div>
+                <div class="col">
+                    <div class="d-grid"><button class="btn btn-outline-secondary btn-lg btn-block" id="pow3" onclick="calcOneArgument(this)">x<sup>3</sup></button></div>
+                </div>
+                <div class="col">
+                    <div class="d-grid"><button class="btn btn-outline-secondary btn-lg btn-block" id="powy"onclick="calcTwoArgument(this)" >x<sup>y</sup></button></div>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col">
+                    <div class="d-grid"><button class="btn btn-outline-secondary btn-lg btn-block" id="pi"  onclick="pi()">&#120587;</button></div>
+                </div>
+                <div class="col">
+                    <div class="d-grid"><button class="btn btn-outline-secondary btn-lg btn-block" id="sqrt" onclick="calcOneArgument(this)">&Sqrt;</button></div>
+                </div>
+                <div class="col">
+                    <div class="d-grid"><button class="btn btn-outline-secondary btn-lg btn-block" id="percnt" onclick="calcOneArgument(this)">&percnt;</button></div>
+                </div>
+                <div class="col">
+                    <div class="d-grid"><button class="btn btn-outline-secondary btn-lg btn-block" onclick="clearOutput()">C</button></div>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col">
+                    <div class="d-grid"><button class="btn btn-outline-secondary btn-lg btn-block" id="7" onclick="addInput(this)">7</button></div>
+                </div>
+                <div class="col">
+                    <div class="d-grid"><button class="btn btn-outline-secondary btn-lg btn-block" id="8" onclick="addInput(this)">8</button></div>
+                </div>
+                <div class="col">
+                    <div class="d-grid"><button class="btn btn-outline-secondary btn-lg btn-block" id="9" onclick="addInput(this)">9</button></div>
+                </div>
+                <div class="col">
+                    <div class="d-grid"><button class="btn btn-outline-secondary btn-lg btn-block" onclick="calcTwoArgument(this)" id="/">&divide;</button></div>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col">
+                    <div class="d-grid"><button class="btn btn-outline-secondary btn-lg btn-block" id="4" onclick="addInput(this)">4</button></div>
+                </div>
+                <div class="col">
+                    <div class="d-grid"><button class="btn btn-outline-secondary btn-lg btn-block" id="5" onclick="addInput(this)">5</button></div>
+                </div>
+                <div class="col">
+                    <div class="d-grid"><button class="btn btn-outline-secondary btn-lg btn-block" id="6" onclick="addInput(this)">6</button></div>
+                </div>
+                <div class="col">
+                    <div class="d-grid"><button class="btn btn-outline-secondary btn-lg btn-block" onclick="calcTwoArgument(this)" id="*">&times;</button></div>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col">
+                    <div class="d-grid"><button class="btn btn-outline-secondary btn-lg btn-block" id="1" onclick="addInput(this)">1</button></div>
+                </div>
+                <div class="col">
+                    <div class="d-grid"><button class="btn btn-outline-secondary btn-lg btn-block" id="2" onclick="addInput(this)">2</button></div>
+                </div>
+                <div class="col">
+                    <div class="d-grid"><button class="btn btn-outline-secondary btn-lg btn-block" id="3" onclick="addInput(this)">3</button></div>
+                </div>
+                <div class="col">
+                    <div class="d-grid"><button class="btn btn-outline-secondary btn-lg btn-block" onclick="calcTwoArgument(this)" id="-">-</button></div>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col">
+                    <div class="d-grid"><button class="btn btn-outline-secondary btn-lg btn-block" id="0" onclick="addInput(this)">0</button></div>
+                </div>
+                <div class="col">
+                    <div class="d-grid"><button class="btn btn-outline-secondary btn-lg btn-block" id="dot" onclick="addInput(this)">.</button></div>
+                </div>
+                <div class="col">
+                    <div class="d-grid"><button class="btn btn-outline-secondary btn-lg btn-block" onclick="calcTwoArgument(this)" id="=">=</button></div>
+                </div>
+                <div class="col">
+                    <div class="d-grid"><button class="btn btn-outline-secondary btn-lg btn-block" onclick="calcTwoArgument(this)" id="+">+</button></div>
+                </div>
+            </div>
+
+            <div id="temp" class="d-none"></div>
+            <div id="calc" class="d-none"></div>
+        </div>
+    </div>
+</body>
+</html>

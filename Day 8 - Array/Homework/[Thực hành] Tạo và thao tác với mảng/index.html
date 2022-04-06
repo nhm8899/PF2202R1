@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sample Screen</title>
+    <title>Tạo và thao tác với mảng</title>
 </head>
 
 <body>
@@ -15,18 +15,18 @@
     <button type="button" onclick="display()">Display</button>
     <div id="result"></div>
     <script>
-        var inputArr = [];
+        let numArr = [];
 
         function add() {
-            var num = document.getElementById("box").value;
-            inputArr.push(num);
+            let num = document.getElementById("box").value;
+            numArr.push(num);
         }
 
         function display() {
-            var result = document.getElementById("result");
-            var str = '';
-            for (i = 0; i < inputArr.length; i++) {
-                str += '<p>Element ' + i + ' = ' + inputArr[i] + '</p>'; // inputArr tại i
+            let result = document.getElementById("result");
+            let str = '';
+            for (i = 0; i < numArr.length; i++) {
+                str += '<p>Element ' + i + ' = ' + numArr[i] + '</p>';
             }
             result.innerHTML = str;
         }

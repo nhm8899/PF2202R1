@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3</title>
+</head>
+<body>
+    <script>
+        let str = prompt("Enter a string:");
+        let strArr = [str[0]];
+        for (let i = 0; i < str.length; i++) {
+            if (str[i] == str[i].toUpperCase()) {
+                strArr.push(str[i].toLowerCase());
+            } else if (str[i] == str[i].toLowerCase()) {
+                strArr.push(str[i].toUpperCase());
+            }
+        }
+        console.log(strArr.join(''));
+    </script>
+</body>
+</html>
