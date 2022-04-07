@@ -13,12 +13,12 @@
         var input = '';
         do {
             input = parseFloat(prompt("Input the temperature:"));
-        } while (input > 20 && input < 100);
-        if (input <= 20) {
-            alert("Heat up!");
-        } else if (input >= 100) {
-            alert("Cool down!");
-        }
+            if (input < 20) {
+                alert("Heat up!");
+            } else if (input > 100) {
+                alert("Cool down!");
+            }
+        } while (input < 20 || input > 100);
     </script>
 </body>
 
