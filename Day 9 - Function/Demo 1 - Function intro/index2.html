@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reuse code</title>
+</head>
+
+<body>
+    <script>
+        function sumRange(from, to) {
+            let sum = 0;
+            for (let i = from; i <= to; i++) {
+                sum += i;
+            }
+            console.log("Sum from " + from + " to " + to + " is " + sum);
+        }
+        sumRange(1, 10);
+        sumRange(35, 49);
+        sumRange(20, 37);
+    </script>
+</body>
+
+</html>

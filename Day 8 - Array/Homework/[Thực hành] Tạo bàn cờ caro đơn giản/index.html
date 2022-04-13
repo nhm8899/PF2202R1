@@ -7,6 +7,41 @@
     <title>Tạo bàn cờ caro đơn giản</title>
 </head>
 <body>
-    <script></script>
+    <h3>Caro Game Simple</h3>
+    <div id="display"></div>
+    <button type="button" onclick="changeValue()">Change value</button>
+    <script>
+        let caro = [];
+        let length = 5;
+        for (i = 0;i < length;i++){
+            let arr = [];
+            for (j = 0;j < length;j++) {
+                arr.push('0');
+            }
+            caro.push(arr);
+        }
+        display(caro);
+
+        function changeValue() {
+            let i = parseInt(prompt("Input x: "));
+            let j = parseInt(prompt("Input y: "));
+            let value = prompt ("Input the symbol: ");
+            caro[i][j] = value;
+            display(caro);
+        }
+        
+        function display(array) {
+            let display = document.getElementById("display");
+            let displayArray = "";
+            for (i = 0; i < array.length; i++) {
+                for (j = 0; j < array[i].length; j++) {
+                    displayArray += array[i][j] + " ";
+                }
+                displayArray += "<br/>";
+            }
+            display.innerHTML = displayArray;
+        }
+
+    </script>
 </body>
 </html>

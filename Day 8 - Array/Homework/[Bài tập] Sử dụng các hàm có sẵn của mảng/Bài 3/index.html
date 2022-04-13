@@ -9,7 +9,7 @@
 <body>
     <script>
         let str = prompt("Enter a string:");
-        let strArr = [];
+        let strArr = []; // [...str];
         for (let i = 0; i < str.length; i++) {
             if (str[i] == str[i].toUpperCase()) {
                 strArr.push(str[i].toLowerCase());
