@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hàm tìm giá trị nhỏ nhất của mảng</title>
+</head>
+
+<body>
+    <script>
+        let arr1 = [3, 5, 1, 8, -3, 7, 8],
+            arr2 = [7, 12, 6, 9, 20, 56, 89],
+            arr3 = [],
+            arr4 = [0, 0, 0, 0, 0, 0];
+        console.log(arr1, arr2, arr3, arr4);
+        
+        function findMin (arr) {
+            if (arr.length == 0) return null;
+            let min = arr[0];
+            for (i = 1; i < arr.length; i++) {
+                if (arr[i] < min) {
+                    min = arr[i];
+                }
+            }
+            return min;
+        }
+        
+        let minArr1 = findMin (arr1);
+        console.log("Min arr1: " + minArr1);
+        let minArr2 = findMin (arr2);
+        console.log("Min arr2: " + minArr2);
+        let minArr3 = findMin (arr3);
+        console.log("Min arr3: " + minArr3);
+        let minArr4 = findMin (arr4);
+        console.log("Min arr4: " + minArr4);
+
+    </script>
+</body>
+
+</html>

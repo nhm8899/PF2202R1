@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hàm kiểm tra số nguyên tố</title>
+</head>
+
+<body>
+    <script>
+        let input = parseInt(prompt("Check the number: "));
+
+        function isPrime(number) {
+            for (i = 1; i < 10000; i++) {
+                let n = 0;
+                for (j = 1; j <= i; j++) {
+                    if (i % j == 0) {
+                        n += 1;
+                        continue;
+                    }
+                }
+                if (n == 2) {
+                    console.log(i);
+                }
+                if (number == i) {
+                    alert(number + " is a prime");
+                    continue;
+                }
+            }
+        }
+
+        isPrime(input);
+    </script>
+</body>
+
+</html>

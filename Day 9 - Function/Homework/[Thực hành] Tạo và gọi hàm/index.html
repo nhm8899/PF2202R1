@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo và gọi hàm</title>
+</head>
+
+<body>
+    <script>
+        function confirmDo(answer) {
+            let result = "";
+            if (answer) {
+                result = "Let's go!";
+            } else {
+                result = "Well okay, bye!";
+            }
+            return result;
+        }
+        let input = confirm("Do you want to build a snowman?");
+        let theAnswer = confirmDo(input);
+        alert(theAnswer);
+    </script>
+</body>
+
+</html>
