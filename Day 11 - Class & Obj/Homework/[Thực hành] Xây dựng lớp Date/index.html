@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xây dựng lớp Date</title>
+</head>
+<body>
+    <script>
+        class Date {
+            constructor(day, month, year) {
+                this.day = day;
+                this.month = month;
+                this.year = year;
+            }
+            getDay() {
+                return this.day;
+            }
+            getMonth() {
+                return this.month;
+            }
+            getYear() {
+                return this.year;
+            }
+            setDay(newDay) {
+                this.day = newDay;
+            }
+            setMonth(newMonth) {
+                this.month = newMonth;
+            }
+            setYear(newYear) {
+                this.year = newYear;
+            }
+            setDate(newDay, newMonth, newYear) {
+                this.day = newDay;
+                this.month = newMonth;
+                this.year = newYear;
+            }
+            toString() {
+                return this.day + "/" + this.month + "/" + this.year;
+            }
+        }
+
+        let date = new Date(8, 8, 1999);
+        console.log(date);
+
+        let day = date.getDay();
+        let month = date.getMonth();
+        let year = date.getYear();
+        console.log(day, month, year);
+
+        date.setDay(12);
+        date.setMonth(9);
+        date.setYear(1999);
+        console.log(date);
+
+        date.setDate(25,2,2019);
+        console.log(date);
+
+        console.log(date.toString());
+    </script>
+</body>
+</html>

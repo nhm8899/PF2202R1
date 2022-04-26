@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Phone</title>
+</head>
+
+<body>
+    <script>
+        class MobilePhone {
+            constructor(name, model, color, year, guaranteed) {
+                this.name = name;
+                this.model = model;
+                this.color = color;
+                this.year = year;
+                this.guaranteed = guaranteed;
+            }
+            getAge() {
+                let now = new Date();
+                return now.getFullYear() - this.year;
+            }
+            setColor(newColor) {
+                this.color = newColor;
+            }
+        }
+
+        let iPhone = new MobilePhone("Apple", "13 Pro Max", "Serria Blue", 2021, true);
+        console.log(iPhone);
+        iPhone.color = "Red";
+        console.log(iPhone);
+        console.log(iPhone.getAge());
+    </script>
+</body>
+
+</html>

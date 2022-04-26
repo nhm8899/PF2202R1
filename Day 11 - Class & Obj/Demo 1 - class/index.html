@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating an object</title>
+</head>
+
+<body>
+    <script src="js/person.js"></script>
+    <script>
+        let minh = new Person("Minh", 1999, "Nam", "nhm881999@gmail.com", "0969019199", "Ha Noi");
+        // console.log(minh.getAge());
+        for (const key in minh) {
+            console.log(key +" : " + minh[key]);
+        }
+    </script>
+</body>
+
+</html>

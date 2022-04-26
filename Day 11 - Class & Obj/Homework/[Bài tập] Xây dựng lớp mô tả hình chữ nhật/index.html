@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xây dựng lớp mô tả hình chữ nhật</title>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="600" style="border:1px solid black;"></canvas>
+    <script>
+        class Rectangle {
+            constructor(width, height) {
+                this.width = width;
+                this.height = height;
+            }
+            setWidth(newWidth) {
+                this.width = newWidth;
+            }
+            setHeight(newHeight) {
+                this.height = newHeight;
+            }
+            calPerimeter() {
+                return (this.width + this.height) * 2;
+            }
+            calArea() {
+                return (this.width * this.height);
+            }
+            displayRect() {
+                let canvas = document.getElementById("canvas");
+                let ctx = canvas.getContext("2d");
+                ctx.fillStyle = "orange";
+                ctx.fillRect(50, 50, this.width, this.height);
+            }
+        }
+
+        let rectangle = new Rectangle(200, 300);
+        rectangle.displayRect();
+
+        rectangle.setWidth(500);
+        rectangle.setHeight(300);
+        rectangle.displayRect();
+
+        let perimeter = rectangle.calPerimeter();
+        console.log("Perimeter: " + perimeter);
+        let area = rectangle.calArea();
+        console.log("Area: " + area);
+    </script>
+</body>
+</html>

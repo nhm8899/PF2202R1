@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Di chuyển hình chữ nhật</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="600" height="400" style="border:1px solid black;"></canvas>
+    <script>
+        function moveRect() {
+            let canvas = document.getElementById("canvas");
+            let ctx = canvas.getContext("2d");
+            ctx.beginPath();
+            ctx.fillStyle = "orange";
+            ctx.fillRect(10, 10, 150, 100);
+            let moveRectangle = setInterval(moveUp, 10);
+        }
+
+        function moveUp() {
+            let posY = 20;
+            ctx.clearRect(10, posY, 150, 100);
+            posY--;
+            ctx.beginPath();
+            ctx.fillStyle = "orange";
+            ctx.fillRect(10, posY, 150, 100);
+        }
+
+        moveRect();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xây dựng lớp mô tả Temperature</title>
+</head>
+
+<body>
+    <script>
+        class Temperature {
+            constructor(degree) {
+                this.degree = degree;
+                if (degree < -273) {
+                    this.degree = -273;
+                }
+            }
+            setDegree(newDegree) {
+                this.degree = newDegree;
+            }
+            changeF() {
+                return (this.degree * 1.8) + 32;
+            }
+            changeK() {
+                return this.degree + 273.15;
+            }
+        }
+
+        let temperature = new Temperature(25);
+        console.log(temperature);
+
+        let degreeF = temperature.changeF();
+        console.log("From C to F: " + degreeF);
+
+        let degreeK = temperature.changeK();
+        console.log("From C to K: " + degreeK);
+    </script>
+</body>
+
+</html>

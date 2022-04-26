@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 10</title>
+</head>
+<body>
+    <script>
+        let input = prompt("Nhập bất kỳ: ");
+        let arr = input.split("");
+        console.log(arr);
+        
+        let findChar = prompt("Nhập ký tự cần tìm: ");
+
+        function find(value) {
+            let count = 0;
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] == value) {
+                    count++;
+                }
+            }
+            if (count !== 0) {
+                return count;
+            } else {
+                return -1;
+            }
+        }
+        let times = find(findChar);
+        console.log("Số lần ký tự " + findChar + " xuất hiện là: " + times);
+    </script>
+</body>
+</html>

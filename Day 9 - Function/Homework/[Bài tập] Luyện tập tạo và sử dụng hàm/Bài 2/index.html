@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+</head>
+<body>
+    <script>
+        let input = prompt("Name of the star: ");
+
+        let stars = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        let constellation = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+
+        function getStar(input) {
+            for (let i in stars) {
+                if (stars[i].toLowerCase() == input.toLowerCase()) {
+                    return constellation[i];
+                }
+            }
+            return null;
+        }
+
+        let result = getStar(input);
+        if (result == null) {
+            console.log("Can not find " + input);
+        } else {
+            console.log("The constellation of " + input + " is " + result);
+        }
+    </script>
+</body>
+</html>

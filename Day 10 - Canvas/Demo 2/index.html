@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 2</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="800" height="600" style="border: 1px solid black;"></canvas>
+    <script>
+        let canvas = document.getElementById("canvas");
+        let ctx = canvas.getContext("2d");
+        let grd = ctx.createLinearGradient(0, 200, 0, 0);
+        grd.addColorStop(0, "#f4a815");
+        grd.addColorStop(1, "#ff0000");
+
+        ctx.fillStyle = grd;
+        ctx.fillRect(0, 0, 800, 600);
+
+        ctx.beginPath();
+        ctx.arc(400, 200, 60, 0, 2 * Math.PI);
+        ctx.fillStyle = "yellow";
+        ctx.fill();
+        ctx.stroke();
+    </script>
+</body>
+
+</html>

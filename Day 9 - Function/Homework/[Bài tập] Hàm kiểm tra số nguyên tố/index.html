@@ -11,27 +11,28 @@
 <body>
     <script>
         let input = parseInt(prompt("Check the number: "));
-
-        function isPrime(number) {
-            for (i = 1; i < 10000; i++) {
-                let n = 0;
-                for (j = 1; j <= i; j++) {
-                    if (i % j == 0) {
-                        n += 1;
-                        continue;
-                    }
-                }
-                if (n == 2) {
-                    console.log(i);
-                }
-                if (number == i) {
-                    alert(number + " is a prime");
-                    continue;
-                }
-            }
+        if (isPrime(input) == true) {
+            alert(input + " is a prime number");
+        } else {
+            alert(input + " is not a prime number");
         }
 
-        isPrime(input);
+        function isPrime(number) {
+            let check = true;
+            for (i = 2; i <= Math.sqrt(number); i++) {
+                if (number % i == 0) {
+                    check = false;
+                    break;
+                }
+            }
+            return check;
+        }
+
+        for (n = 2; n < 10000; n++) {
+            if (isPrime(n) == true) {
+                console.log(n);
+            }
+        }
     </script>
 </body>
 

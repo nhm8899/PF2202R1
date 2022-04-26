@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 4</title>
+</head>
+
+<body>
+    <script>
+        let input = parseFloat(prompt("Nhập bán kính hình tròn: "));
+        const PI = 3.14;
+
+        function diameter(r) {
+            return 2 * r * PI;
+        }
+
+        function area(r) {
+            return r * r * PI;
+        }
+
+        console.log("Chu vi: " + diameter(input));
+        console.log("Diện tích: " + area(input));
+    </script>
+</body>
+
+</html>

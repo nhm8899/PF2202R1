@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 5</title>
+</head>
+
+<body>
+    <script>
+        let input = parseInt(prompt("Nhập 1 số nguyên dương: "));
+
+        function factorial(input) {
+            if (input < 0) {
+                alert(input + " không phải số nguyên dương!");
+            } else if (input > 0) {
+                let result = 1;
+                for (let i = 1; i <= input; i++) {
+                    result = result * i;
+                }
+                alert("Giai thừa của " + input + " là " + result);
+            } else if (input == 0) {
+                alert("Giai thừa của 0 là 1");
+            }
+        }
+
+        factorial(input);
+    </script>
+</body>
+
+</html>
