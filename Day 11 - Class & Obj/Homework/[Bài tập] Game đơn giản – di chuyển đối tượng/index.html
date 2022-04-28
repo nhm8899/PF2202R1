@@ -25,17 +25,23 @@
             }
 
             this.moveRight = function () {
-                this.left += 20;
+                this.left += 100;
                 console.log('ok: ' + this.left);
             }
 
+            this.moveDown = function () {
+                this.top += 100;
+            }
         }
 
-        var hero = new Hero('pikachu.png', 20, 30, 200);
+        var hero = new Hero('dragonite.png', 20, 10, 200);
 
         function start() {
             if (hero.left < window.innerWidth - hero.size) {
                 hero.moveRight();
+            }
+            if (hero.top < window.innerHeight - hero.size) {
+                hero.moveDown();
             }
             document.getElementById('game').innerHTML = hero.getHeroElement();
             setTimeout(start, 500)

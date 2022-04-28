@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phát triển ứng dụng nhỏ mô phỏng câu chuyện Adam và Eva</title>
+</head>
+
+<body>
+    <script>
+        class Apple {
+            constructor() {
+                this.weight = 10;
+            }
+            decrease() {
+                if (this.weight > 0) {
+                    this.weight--;
+                }
+            }
+            isEmpty() {
+                if (this.weight == 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            getWeight() {
+                return this.weight;
+            }
+        }
+        let apple = new Apple();
+        apple.getWeight();
+        console.log(apple);
+
+        class Human {
+            constructor(name, gender, weight) {
+                this.name = name;
+                this.gender = gender;
+                this.weight = weight;
+            }
+            isMale() {
+                if (this.gender == "male") {
+                    return true;
+                } else if (this.gender == "female") {
+                    return false;
+                }
+            }
+            setGender(boolean) {
+                if (boolean == true) {
+                    return this.gender = "male";
+                } else {
+                    return this.gender = "female";
+                }
+            }
+            checkApple(apple) {
+                return apple.getWeight();
+            }
+            eat(apple) {
+                if (apple.isEmpty() == true) {
+                    return null;
+                } else {
+                    this.weight++;
+                    apple.decrease();
+                }
+            }
+            say(string) {
+                console.log(string);
+            }
+            getName() {
+                return this.name;
+            }
+            setName(newName) {
+                this.name = newName;
+            }
+            getWeight() {
+                return this.weight;
+            }
+            setWeight(newWeight) {
+                this.weight = newWeight;
+            }
+        }
+
+        let adam = new Human("Adam", "male", 70);
+        console.log(adam);
+        console.log(adam.isMale());
+        console.log(adam.checkApple(apple));
+        adam.eat(apple);
+        adam.say("Hi Eva, my love");
+        adam.getWeight();
+        adam.checkApple(apple);
+        console.log(adam);
+        console.log(apple);
+
+        let eva = new Human("Eva", "female", 60);
+        console.log(eva);
+        console.log(eva.isMale());
+        console.log(eva.checkApple(apple));
+        eva.eat(apple);
+        eva.say("Yo wut suppp!");
+        eva.getWeight();
+        eva.checkApple(apple);
+        console.log(eva);
+        console.log(apple);
+
+    </script>
+</body>
+
+</html>
