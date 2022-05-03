@@ -8,7 +8,73 @@
 </head>
 <body>
     <script>
-        
+        class Animal {
+            constructor(name, weight, speed, sound, status) {
+                this.name = name;
+                this.weight = weight;
+                this.speed = speed;
+                this.sound = sound;
+                this.status = status;
+            }
+        }
+
+        class Rat extends Animal {
+            getRatSound() {
+                return (this.name + " say: " + this.sound);
+            }
+            getLife() {
+                if (this.status == "alive") {
+                    return true;
+                } else if (this.status == "dead") {
+                    return false;
+                }
+            }
+        }
+
+        class Cat extends Animal {
+            catchRat(rat) {
+                if (cat.speed > rat.speed) {
+                    alert (cat.name + " has catched " + rat.name);
+                } else {
+                    alert (cat.name + " can't catch " + rat.name);
+                }
+            }
+            eatRat(rat) {
+                if (rat.status == "alive") {
+                    this.weight += rat.weight;
+                    rat.status == "dead";
+                    alert(this.name + " has eaten " + rat.name);
+                } else {
+                    alert("The rat is dead so " + this.name + " can not eat it.");
+                }
+            }
+            getCatSound() {
+                return this.sound;
+            }
+            getWeight() {
+                return this.weight;
+            }
+        }
+
+        let rat1 = new Rat("Jerry1", 10, 20, "Chít chít", "alive"),
+            rat2 = new Rat("Jerry2", 10, 30, "Chít chít", "alive"),
+            rat3 = new Rat("Jerry3", 20, 20, "Chít chít", "dead");
+        let cat = new Cat("Tom", 30, 25, "Meow meow");
+
+        console.log(rat1, rat2, rat3, cat);
+
+        alert("Start!");
+        alert(rat1.getRatSound());
+        alert(rat2.getRatSound());
+        alert(rat3.getRatSound());
+        alert(cat.getCatSound());
+        cat.catchRat(rat1);
+        cat.eatRat(rat1);
+        console.log(cat.getWeight());
+        cat.catchRat(rat2);
+        cat.catchRat(rat3);
+        cat.eatRat(rat3);
+        console.log(cat.getWeight());
     </script>
 </body>
 </html>

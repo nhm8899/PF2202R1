@@ -19,11 +19,7 @@
                 this.status = false;
             }
             getChannel() {
-                if (this.turnOn()) {
-                    return this.channel;
-                } else if (this.turnOff()) {
-                    return null;
-                }
+                return this.channel;
             }
             setChannel(channel) {
                 this.channel = channel;

@@ -19,13 +19,11 @@
                 this.status = false;
             }
         }
-        let lamp = new ElectricLamp();
-        console.log(lamp);
-
+        
         class SwitchButton {
             constructor() {}
-            connectToLamp(ElectricLamp) {
-                this.connect = lamp;
+            connectToLamp(electricLamp) {
+                this.lamp = electricLamp;
             }
             switchOn() {
                 return lamp.turnOn();
@@ -34,6 +32,8 @@
                 return lamp.turnOff();
             }
         }
+        let lamp = new ElectricLamp();
+        console.log(lamp);
         let switchButton = new SwitchButton();
         console.log(switchButton);
         switchButton.connectToLamp(lamp);

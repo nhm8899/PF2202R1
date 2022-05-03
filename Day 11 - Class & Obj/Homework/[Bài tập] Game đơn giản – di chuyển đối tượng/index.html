@@ -11,40 +11,51 @@
 <body>
     <div id="game"></div>
     <script>
-        function Hero(image, top, left, size) {
-            this.image = image;
-            this.top = top;
-            this.left = left;
-            this.size = size;
-
-            this.getHeroElement = function () {
+        class Hero {
+            constructor(image, top, left, size) {
+                this.image = image;
+                this.top = top;
+                this.left = left;
+                this.size = size;
+            }
+            getHeroElement() {
                 return '<img width="' + this.size + '"' +
                     ' height="' + this.size + '"' +
                     ' src="' + this.image + '"' +
                     ' style="top: ' + this.top + 'px; left:' + this.left + 'px;position:absolute;" />';
             }
-
-            this.moveRight = function () {
+            moveRight() {
                 this.left += 100;
-                console.log('ok: ' + this.left);
+                console.log(this.left);
             }
-
-            this.moveDown = function () {
+            moveLeft() {
+                this.left -= 100;
+                console.log(this.left);
+            }
+            moveUp() {
+                this.top -= 100;
+                console.log(this.top);
+            }
+            moveDown() {
                 this.top += 100;
+                console.log(this.top);
             }
         }
-
-        var hero = new Hero('dragonite.png', 20, 10, 200);
+        let hero = new Hero("yasuo.jpg", 20, 30, 200);
 
         function start() {
-            if (hero.left < window.innerWidth - hero.size) {
+            if (hero.left < window.innerWidth - hero.size && hero.top == 20) {
                 hero.moveRight();
-            }
-            if (hero.top < window.innerHeight - hero.size) {
+            } else if (hero.left > window.innerWidth - hero.size && hero.top < window.innerHeight - hero.size) {
                 hero.moveDown();
+            } else if (hero.top > window.innerHeight - hero.size) {
+                hero.moveLeft();
             }
-            document.getElementById('game').innerHTML = hero.getHeroElement();
-            setTimeout(start, 500)
+            if (hero.left == 30) {
+                hero.moveUp();
+            }
+            document.getElementById("game").innerHTML = hero.getHeroElement();
+            setTimeout(start, 50);
         }
 
         start();
