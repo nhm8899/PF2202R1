@@ -1,0 +1,31 @@
+* {
+    font-family: 'Press Start 2P', cursive;
+    box-sizing: border-box;
+}
+.container {
+    position: relative;
+    background-image: url("tetris1.jpg");
+    background-position: center;
+    background-size: auto;
+    background-repeat: no-repeat;
+    border: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1600px;
+    height: 1600px;
+}
+.score-box {
+    position: absolute;
+    top: 400px;
+}
+.game-board {
+    position: relative;
+    top: 350px;
+    right: 100px;
+    width: 600px;
+    height: 1200px;
+}
+h1 {
+    text-align: t;
+}
