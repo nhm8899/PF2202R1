@@ -12,38 +12,32 @@
         * {
             font-family: 'Press Start 2P', cursive;
         }
-        body {
-            
-        }
 
-        .container{
+        .container {
             position: relative;
-            background-image: url("media/images/tetris1.jpg");
+            background-image: url("media/images/abcs.png");
             background-position: center;
-            background-size: auto;
+            background-size: cover;
             background-repeat: no-repeat;
-            border: 1px ;
+            border: 1px;
             display: flex;
             justify-content: center;
             align-items: center;
-            grid-template-columns: 420px 200px;
             width: 1600px;
             height: 1200px;
         }
 
-        .right-column {
+        .intro-game {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+        }        
+        .intro-game h1 {
+            position: absolute;
+            top: 150px;
+            font-size: 80px;
         }
-
-        .game-board {
-            border: solid 2px;
-            width: 400px;
-            height: 800px;
-        }
-
         .csw-btn-button {
             cursor: pointer;
             font-size: 16px;
@@ -63,32 +57,11 @@
 
 <body>
     <div class="container pt-5 text-center">
-        <!-- <canvas id="board" class="game-board"></canvas> -->
-        <div class="right-column">
-            <div>
-                <h1>TETRIS</h1>
-                <p>Score: <span id="score">0</span></p>
-                <p>Level: <span id="level">0</span></p>
-                <canvas id="next" class="next"></canvas>
-            </div>
+        <div class="intro-game">
+            <h1>TETRIS</h1>
             <button type="button" onclick="location.href='index.html';" class="csw-btn-button">Play</button>
         </div>
     </div>
-    <script>
-        const canvas = document.getElementById('board');
-        const ctx = canvas.getContext('2d');
-
-        const COLS = 10;
-        const ROWS = 20;
-        const BLOCK_SIZE = 30;
-
-        // Calculate size of canvas from constants.
-        ctx.canvas.width = COLS * BLOCK_SIZE;
-        ctx.canvas.height = ROWS * BLOCK_SIZE;
-
-        // Scale blocks
-        ctx.scale(BLOCK_SIZE, BLOCK_SIZE);
-    </script>
 </body>
 
 </html>

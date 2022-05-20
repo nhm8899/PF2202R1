@@ -1,17 +1,21 @@
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+let canvas = document.getElementById('canvas');
+let ctx = canvas.getContext('2d');
 let changeScore = document.getElementById('score');
+let music = document.getElementById('music');
 
 const rowBoard = 20;
 const colBoard = 10;
 const SQ = 40;
-const COLOR = "#AAAAAA";
+const COLOR = "#000000";
+let score = 0;
+let gameOver = false;
 
-// Vẽ 1 hình vuông
+
+// Vẽ hình vuông
 function drawSquare(x, y, color) {
     ctx.fillStyle = color;
     ctx.fillRect(x * SQ, y * SQ, SQ, SQ);
-    ctx.strokeStyle = "#000000";
+    ctx.strokeStyle = "#FFFFFF";
     ctx.strokeRect(x * SQ, y * SQ, SQ, SQ);
 }
 
@@ -33,17 +37,15 @@ function drawBoard() {
 }
 drawBoard();
 
-let score = 0;
-
 // Các hình và màu
 const SHAPES = [
-    [I, "#00FF00"],
-    [O, "#FFFF00"],
-    [T, "#361616"],
-    [L, "#DF0101"],
-    [J, "#0000FF"],
-    [S, "#EE7600"],
-    [Z, "#FE2E9A"]
+    [I, "#A60321"],
+    [O, "#04BFAD"],
+    [T, "#0DFF72"],
+    [L, "#F538FF"],
+    [J, "#FF8E0D"],
+    [S, "#FFE138"],
+    [Z, "#3877FF"]
 ];
 console.log(SHAPES);
 
@@ -146,8 +148,10 @@ class Shape {
                 }
                 // Khóa hình chạm cạnh trên
                 if (this.y + i < 0) {
-                    alert("Game Over! Bạn được "+ score + " điểm");
+                    music.pause();
                     gameOver = true; // Dừng requestAnimationFrame
+                    canvas.innerHTML = '<audio autoplay src="media/audio/Mario.mp3"></audio>';
+                    alert("Game Over! You got " + score + " points.");
                     break;
                 }
                 board[this.y + i][this.x + j] = this.color;
@@ -168,6 +172,7 @@ class Shape {
                 for (j = 0; j < colBoard; j++) {
                     board[0][j] = COLOR;
                 }
+                canvas.innerHTML = '<audio autoplay src="media/audio/clear.wav"></audio>';
                 // Tăng điểm
                 score += 10;
             }
@@ -187,31 +192,38 @@ let shape = randomShape();
 console.log(shape);
 
 // Di chuyển
+function playMovingMusic() {
+    canvas.innerHTML = '<audio autoplay src="media/audio/move.wav">';
+}
 document.addEventListener("keydown", control);
 
 function control(e) { // Có thể dùng phím arrow hoặc ASDW 
     if (e.keyCode == 37 || e.keyCode == 65) {
         shape.moveLeft();
+        playMovingMusic();
         dropStart = Date.now();
     } else if (e.keyCode == 38 || e.keyCode == 87) {
         shape.rotate();
+        playMovingMusic();
         dropStart = Date.now();
     } else if (e.keyCode == 39 || e.keyCode == 68) {
         shape.moveRight();
+        playMovingMusic();
         dropStart = Date.now();
     } else if (e.keyCode == 40 || e.keyCode == 83) {
         shape.moveDown();
+        // playMovingMusic();
     }
 }
 
 // Làm hình rơi từ trên xuống
 let dropStart = Date.now();
-let gameOver = false;
 
 function dropShape() {
     let now = Date.now();
     let minus = now - dropStart;
     if (minus > 1000) {
+        music.play();
         shape.moveDown();
         dropStart = Date.now();
     }

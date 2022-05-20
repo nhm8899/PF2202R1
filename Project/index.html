@@ -7,17 +7,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Tetris</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
-    <link rel="stylesheet" href="assets/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/bootstrap-5.0.2-dist/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <div class="container pt-5 text-center">
-        <h1>Game Tetris</h1>
-        <p class=" score-box">Score:
-            <span id="score">0</span>
-        </p>
-        <canvas id="canvas" class="game-board" width="400" height="800" style="border:1px solid black;"></canvas>
+    <div class="container">
+        <div class="user-manual">
+            <h1><i class="bi bi-controller"></i>Instructions</h1>
+            <div class="text-manual">
+                <p>1. Use 
+                    <img src="media/images/arrowkey.png" width="150px" height="100px"> or A: move left, S: move down, D: move right and W: rotate. 
+                </p>
+                <p>2. Each piece will come in a random shape and color whenever the previous piece touched down an object.</p>
+                <p>3. You will get 10 points for a full - filled row.</p>
+                <p>4. If a piece reaches the top board: GAME OVER!</p>
+                <P> Enjoy the game! 🤗</P>
+            </div>
+        </div>
+        <div class="game-board">
+            <h1>Game Tetris</h1>
+            <p class=" score-box">Score:
+                <span id="score">0</span>
+            </p>
+            <canvas id="canvas" width="400px" height="800px" style="border:1px solid black;"></canvas>
+        </div>
+        <audio loop autoplay id="music">
+            <source src="media/audio/Original Tetris theme (Tetris Soundtrack).mp3">
+        </audio>
     </div>
     <script src="assets/js/shapes.js"></script>
     <script src="assets/js/tetris.js"></script>

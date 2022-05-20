@@ -1,31 +1,26 @@
-* {
-    font-family: 'Press Start 2P', cursive;
-    box-sizing: border-box;
-}
+
 .container {
-    position: relative;
-    background-image: url("tetris1.jpg");
-    background-position: center;
-    background-size: auto;
-    background-repeat: no-repeat;
-    border: 1px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 1600px;
-    height: 1600px;
+    
 }
-.score-box {
-    position: absolute;
-    top: 400px;
+.game-board,
+.user-manual {
+    text-align: center;
+    margin: 10px;
+    width: 50%;
+    border: 1px solid #000;
 }
 .game-board {
-    position: relative;
-    top: 350px;
-    right: 100px;
-    width: 600px;
-    height: 1200px;
+    font-family: 'Press Start 2P', cursive;
 }
-h1 {
-    text-align: t;
+.text-manual {
+    text-align: left;
+    padding: 20px;
+}
+.user-manual {
+    background-image: url("tetris.png");
+    background-size: 1000px 1000px;
+    background-position: center;
+    font-size: 30px;
+    font-weight: 700;
 }
